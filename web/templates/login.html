@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title%}
+{{title}}
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<body class="form-body">
+  <form class="am-form am-form-horizontal am-g" action="/api/regist" method="post">
+    <fieldset>
+      <legend>Login</legend>
+
+      <div id="username-input-div" class="am-form-group am-form-icon am-form-feedback am-form-warning" >
+        <label for="login-input" class="am-u-sm-4 am-form-label">username/email</label>
+        <div class="am-u-sm-4 am-u-sm-uncentered">
+          <input id="login-input" name="" type="email" class="am-form-field"  placeholder="@" />
+          <span id="login-icon" class="am-icon-warning"></span>
+        </div>
+        <div id="password-string" class="am-u-sm-4 am-u-sm-uncentered am-text-danger">
+          <strong>format string</strong>
+        </div>
+      </div>
+
+      <div id="password-input-div" class="am-form-group am-form-icon am-form-feedback am-form-warning" >
+        <label for="password-input" class="am-u-sm-4 am-form-label">password</label>
+        <div class="am-u-sm-4  am-u-sm-uncentered">
+          <input id="password-input" name="password" type="password" class="am-form-field"  placeholder="********" />
+          <span id="password-icon" class="am-icon-warning"></span>
+        </div>
+      </div>
+
+      <div class="am-form-group">
+        <div class="am-u-sm-10 am-u-sm-offset-4">
+          <button type="submit" class="am-btn am-btn am-btn-primary">Regist</button>
+        </div>
+      </div>
+    <fieldset>
+  </form>
+</body>
+
+{% endblock %}

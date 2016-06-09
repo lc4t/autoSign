@@ -1,9 +1,8 @@
 from django.db import models
+from django.contrib.auth.base_user import AbstractBaseUser
 
-
-class user(models.Model):
+class user(AbstractBaseUser):
     email = models.EmailField(max_length = 200, unique = True)
-    password = models.BinaryField()
     registTime = models.DateTimeField()
     registIp = models.CharField(max_length = 15, null = True)
     loginTimes = models.IntegerField(default = 0)

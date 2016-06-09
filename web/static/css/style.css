@@ -1,0 +1,11 @@
+.index-body
+{
+    background-image: url(/static/images/index.jpg);
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+
+.form-body
+{
+    background-color: #666666;
+}
