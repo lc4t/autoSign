@@ -1,0 +1,20 @@
+<table class="am-table am-g am-container">
+  <thead>
+    <tr>
+        <th>name</th>
+        <th>target url</th>
+        <th>verify time</th>
+        <th>author</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for script in scripts%}
+    <tr class="{% if script.disable %}am-danger{% else %}am-success{% endif %}">
+      <td><a href="create/{{ script.id }}">{{ script.name }}</td>
+      <td>{{ script.target }}</td>
+      <td>{{ script.time }}</td>
+      <td>{{ script.author.username }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -8,14 +8,15 @@
 {% load staticfiles %}
 
 <body class="form-body">
-  <form class="am-form am-form-horizontal am-g" action="/api/regist" method="post">
+  <form class="am-form am-form-horizontal am-g" action="api/regist" method="post">
+    {% csrf_token %}
     <fieldset>
       <legend>Regist</legend>
 
       <div id="email-input-div" class="am-form-group am-form-icon am-form-feedback am-form-warning" >
         <label for="email-input" class="am-u-sm-4 am-form-label">email</label>
         <div class="am-u-sm-4 am-u-sm-uncentered">
-          <input id="email-input" name="" type="email" class="am-form-field"  placeholder="@" />
+          <input id="email-input" name="email" type="email" class="am-form-field"  placeholder="@" />
           <span id="email-icon" class="am-icon-warning"></span>
         </div>
       </div>
@@ -23,7 +24,7 @@
       <div id="username-input-div" class="am-form-group am-form-icon am-form-feedback am-form-warning" >
         <label for="username-input" class="am-u-sm-4 am-form-label">username</label>
         <div class="am-u-sm-4 am-u-sm-uncentered">
-          <input id="username-input" name="" type="email" class="am-form-field"  placeholder="@" />
+          <input id="username-input" name="username" type="text" class="am-form-field"  placeholder="@" />
           <span id="username-icon" class="am-icon-warning"></span>
         </div>
         <div id="username-string" class="am-u-sm-4 am-u-sm-uncentered am-text-danger">
@@ -45,7 +46,7 @@
       <div id="check-input-div" class="am-form-group am-form-icon am-form-feedback am-form-warning" >
         <label for="check-input" class="am-u-sm-4 am-form-label">check↑</label>
         <div class="am-u-sm-4  am-u-sm-uncentered">
-          <input id="check-input" name="check" type="password" class="am-form-field"  placeholder="********" />
+          <input id="check-input" type="password" class="am-form-field"  placeholder="********" />
           <span id="check-icon" class="am-icon-warning"></span>
         </div>
         <div id="check-string" class="am-u-sm-4 am-u-sm-uncentered am-text-danger">

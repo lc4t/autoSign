@@ -13,5 +13,8 @@ export default StyleSheet.create({
     },
     "form-body": {
         "backgroundColor": "#666666"
+    },
+    "home-body": {
+        "backgroundColor": "#555555"
     }
 });

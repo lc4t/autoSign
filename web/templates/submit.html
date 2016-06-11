@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title%}
+{{title}}
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<body class="home-body">
+  {% include "navbar.html" %}
+  <form class="am-form am-form-horizontal am-g" action='api/submit' method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <fieldset>
+      <legend>Submit New Script</legend>
+
+      <div class="am-form-group am-form-feedback am-form-warning" >
+        <label for="name-input" class="am-u-sm-4 am-form-label">name</label>
+        <div class="am-u-sm-4 am-u-sm-uncentered">
+          <input id="name-input" name="name" type="text" class="am-form-field"  placeholder="Baidu tieba" />
+        </div>
+      </div>
+
+      <div class="am-form-group am-form-feedback am-form-warning" >
+        <label for="target-input" class="am-u-sm-4 am-form-label">target</label>
+        <div class="am-u-sm-4 am-u-sm-uncentered">
+          <input id="target-input" name="target" type="text" class="am-form-field"  placeholder="http://" />
+        </div>
+      </div>
+
+      <div class="am-form-group am-form-feedback am-form-warning" >
+        <label for="intro-input" class="am-u-sm-4 am-form-label">inro</label>
+        <div class="am-u-sm-4 am-u-sm-uncentered">
+          <textarea rows="3" id="intro-input" name="intro" type="text" class="am-form-field"  placeholder="Intro for your script"></textarea>
+        </div>
+      </div>
+
+      <div class="am-form-group am-form-file am-form-error">
+        <label for="file-upload" class="am-u-sm-4 am-form-label">upload</label>
+        <div class="am-u-sm-4 am-u-sm-uncentered">
+          <button type="button" class="am-btn am-btn-danger am-btn-sm">
+            <i class="am-icon-cloud-upload"></i> *.py upload</button>
+          <input id="file-upload" type="file" name="scriptFile" multiple>
+        </div>
+      </div>
+
+      <div class="am-form-group am-form-file">
+        <label  class="am-u-sm-4 am-form-label"></label>
+        <div class="am-u-sm-4 am-u-sm-uncentered" id ="file-list"></div>
+      </div>
+
+      <div class="am-form-group">
+        <div class="am-u-sm-10 am-u-sm-offset-4">
+          <button type="submit" class="am-btn am-btn am-btn-primary">Submit</button>
+        </div>
+      </div>
+    <fieldset>
+
+  </form>
+</body>
+<script>
+  $(function() {
+    $('#file-upload').on('change', function() {
+      var fileNames = '';
+      $.each(this.files, function() {
+        fileNames += '<span class="am-badge">' + this.name + '</span> ';
+      });
+      $('#file-list').html(fileNames);
+    });
+  });
+</script>
+{% endblock %}

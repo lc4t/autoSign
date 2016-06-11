@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title%}
+{{title}}
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<body class="home-body">
+  {% include "navbar.html" %}
+</body>
+
+{% endblock %}
